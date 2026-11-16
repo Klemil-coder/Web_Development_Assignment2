@@ -7,32 +7,68 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Odd Habitats</h1>
-    <p>A small guide to unusual animals and their homes.</p>
+  <header class="site-header">
+    <a class="logo" href="#home">Odd Habitats</a>
+
+    <details class="menu">
+      <summary aria-label="Open biome menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </summary>
+      <nav>
+        <a href="#aquatic">Aquatic</a>
+        <a href="#terrestrial">Terrestrial</a>
+        <a href="#high-altitude">High altitude</a>
+      </nav>
+    </details>
   </header>
 
-  <main>
-    <section class="animals" aria-label="Unusual animals">
-      <article class="animal">
-        <img src="images/aye-aye.jpg" alt="An aye-aye in a tree">
-        <h2>Aye-aye</h2>
-        <p><strong>Habitat:</strong> Madagascar rainforest</p>
-        <p>This nocturnal lemur taps on trees to find insects hidden inside.</p>
-      </article>
+  <main id="home">
+    <section class="intro">
+      <h1>Explore unusual habitats</h1>
+      <p>Choose a biome to meet some of its extraordinary animals.</p>
 
+      <nav class="biome-buttons" aria-label="Choose a biome">
+        <a href="#aquatic">Aquatic</a>
+        <a href="#terrestrial">Terrestrial</a>
+        <a href="#high-altitude">High altitude</a>
+      </nav>
+    </section>
+
+    <section class="biome" id="aquatic">
+      <h2>Aquatic</h2>
       <article class="animal">
         <img src="images/leafy-seadragon.jpg" alt="A leafy seadragon underwater">
-        <h2>Leafy seadragon</h2>
-        <p><strong>Habitat:</strong> Southern Australian coast</p>
-        <p>Its leaf-like fins help it blend in with underwater plants.</p>
+        <div>
+          <h3>Leafy seadragon</h3>
+          <p>Found off the southern coast of Australia, this fish blends in with underwater plants.</p>
+        </div>
       </article>
+    </section>
 
+    <section class="biome" id="terrestrial">
+      <h2>Terrestrial</h2>
       <article class="animal">
-        <img src="images/fennec-fox.jpg" alt="A fennec fox in the desert">
-        <h2>Fennec fox</h2>
-        <p><strong>Habitat:</strong> Sahara Desert</p>
-        <p>Its large ears help it release heat and listen for prey.</p>
+        <img src="images/aye-aye.jpg" alt="An aye-aye in a tree">
+        <div>
+          <h3>Aye-aye</h3>
+          <p>This nocturnal lemur lives in Madagascar’s forests and searches trees for insects.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="biome" id="high-altitude">
+      <h2>High altitude</h2>
+      <article class="animal">
+        <img src="images/Himalayan-jumping-spider.jpg" alt="A snow leopard in a mountain habitat">
+        <div>
+          <h3>himalayan jumping spider</h3>
+          <p>The Himalayan jumping spider (Euophrys omnisuperstes) is a very small spider: 
+            Females: About 5 mm (roughly 3/16 inch) in total body length.
+            Males: Slightly smaller, about 4 mm (roughly 5/32 inch) or less in total body length.
+            Despite their tiny size, they are known for living at extreme elevations of up to 6,700 meters (22,000 feet) in the Himalayas, including around Mount Everest.</p>
+        </div>
       </article>
     </section>
   </main>

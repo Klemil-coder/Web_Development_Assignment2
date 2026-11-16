@@ -2,78 +2,149 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: #f5f1e7;
   color: #19291f;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-header {
-  padding: 40px 20px;
-  text-align: center;
-  background: #d6e2e4;
+.site-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 6%;
+  background: #dce4d6;
 }
 
-header h1 {
-  margin: 0 0 10px;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
-  font-size: 2.8rem;
+.logo {
+  color: inherit;
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-header p {
-  margin: 0;
+.menu {
+  position: relative;
 }
 
-.animals {
-  width: min(100% - 32px, 1000px);
-  margin: 40px auto;
+.menu summary {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu summary span {
+  width: 25px;
+  height: 2px;
+  background: #19291f;
+}
+
+.menu nav {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  z-index: 1;
+  min-width: 170px;
+  padding: 8px;
+  background: #fffdf7;
+  box-shadow: 0 4px 12px #19291f22;
+}
+
+.menu nav a {
+  display: block;
+  padding: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.menu nav a:hover {
+  background: #dce4d6;
+}
+
+.intro {
+  padding: 65px 20px;
+  text-align: center;
+  background: #e8e5d5;
+}
+
+.intro h1 {
+  margin: 0 0 12px;
+  font-family: Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.biome-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.biome-buttons a {
+  padding: 12px 18px;
+  border-radius: 4px;
+  background: #315b43;
+  color: white;
+  text-decoration: none;
+}
+
+.biome-buttons a:hover {
+  background: #233f30;
+}
+
+.biome {
+  max-width: 850px;
+  margin: 45px auto;
+  padding: 0 20px;
+  scroll-margin-top: 20px;
+}
+
+.biome h2 {
+  font-family: Georgia, serif;
+  font-size: 2rem;
 }
 
 .animal {
-  overflow: hidden;
-  padding-bottom: 18px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 16px;
   background: #fffdf7;
   border-radius: 6px;
 }
 
 .animal img {
-  display: block;
   width: 100%;
-  height: 220px;
+  height: 160px;
+  border-radius: 4px;
   object-fit: cover;
-  transition: transform 300ms ease;
-}
-
-.animal img:hover {
-  transform: scale(1.04);
-}
-
-.animal h2,
-.animal p {
-  margin-right: 18px;
-  margin-left: 18px;
-}
-
-.animal h2 {
-  margin-top: 18px;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
 }
 
 .animal p {
   line-height: 1.5;
 }
 
-@media (max-width: 700px) {
-  .animals {
+@media (max-width: 550px) {
+  .animal {
     grid-template-columns: 1fr;
-    max-width: 450px;
   }
 
   .animal img {
-    height: 260px;
+    height: 220px;
   }
 }
