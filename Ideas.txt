@@ -3,3 +3,23 @@ Biology of weird uncommon animals that i like, with biome related animations
 Gambling website with different games such as, higher or lower, roulette, etc...
 
 picked idea: the unusual-animals biology site
+
+3 biomes
+
+Aquatic:
+  . Leafy seadragon
+  . Blob fish
+  . sea slug
+  . mola mola
+
+Terrestrial
+  . Aye Aye
+  . Ant-eater
+  . Texas horned lizard
+  . Breaking Bones Frog
+
+High altitude
+  . Himalayan jumping spider
+  . Mountain Goat
+  . The frog that dies
+  . Barnacle goose
