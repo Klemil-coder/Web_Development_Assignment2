@@ -4,17 +4,77 @@
 
 body {
   margin: 0;
-  background: #f5f1e7;
+  background: #e8e2e9;
   color: #19291f;
   font-family: Arial, sans-serif;
 }
+
+/* Aquatic: deep water, blue-grey and charcoal */
+body.aquatic {
+  --page: #dce7e9;
+  --surface: #f4f7f6;
+  --ink: #17262b;
+  --accent: #245b70;
+  --header: #9db8c0;
+}
+
+/* Terrestrial: soil, leaves and warm earth */
+body.terrestrial {
+  --page: #eee5d5;
+  --surface: #faf6ec;
+  --ink: #32271c;
+  --accent: #526b3c;
+  --header: #c9a875;
+}
+
+/* High altitude: snow, dark stone and alpine green */
+body.high-altitude {
+  --page: #e8e9e6;
+  --surface: #f8f8f5;
+  --ink: #202522;
+  --accent: #365342;
+  --header: #c9ceca;
+}
+
+/* Apply each page's colors */
+body.aquatic,
+body.terrestrial,
+body.high-altitude {
+  background: var(--page);
+  color: var(--ink);
+}
+
+body.aquatic .site-header,
+body.terrestrial .site-header,
+body.high-altitude .site-header {
+  background: var(--header);
+}
+
+body.aquatic .animal,
+body.terrestrial .animal,
+body.high-altitude .animal {
+  background: var(--surface);
+}
+
+body.aquatic .biome-buttons a,
+body.terrestrial .biome-buttons a,
+body.high-altitude .biome-buttons a {
+  background: var(--accent);
+}
+
+body.aquatic .back-link,
+body.terrestrial .back-link,
+body.high-altitude .back-link {
+  color: var(--accent);
+}
+
 
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 6%;
-  background: #dce4d6;
+  background: #a4bf8f;
 }
 
 .logo {
@@ -138,6 +198,20 @@ body {
 
 .animal p {
   line-height: 1.5;
+}
+
+.animal-summary {
+  line-height: 1.5;
+}
+
+.wikipedia-link {
+  display: inline-block;
+  margin: 0 14px 12px;
+  color: var(--accent, #315b43);
+}
+
+.wikipedia-link[hidden] {
+  display: none;
 }
 
 @media (max-width: 700px) {

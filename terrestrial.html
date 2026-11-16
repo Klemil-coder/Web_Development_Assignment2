@@ -6,7 +6,7 @@
   <title>Terrestrial Animals — Odd Habitats</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="terrestrial">
   <header class="site-header">
     <a class="logo" href="index.html">Odd Habitats</a>
     <details class="menu">
@@ -24,23 +24,38 @@
   <main class="page">
     <a class="back-link" href="index.html">← All biomes</a>
     <h1>Terrestrial</h1>
-  
+    
     <section class="animal-grid" aria-label="Terrestrial animals">
-      <article class="animal">
+      <article class="animal" data-wikipedia-title="Aye-aye">
         <img src="images/aye-aye.jpg" alt="Aye-aye in a tree">
         <h2>Aye-aye</h2>
+        <p class="animal-summary">Loading information…</p>
+        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+          Read more on Wikipedia
+        </a>
       </article>
-  
-      <article class="animal">
-        <img src="images/anteater.jpg" alt="Anteater walking">
+    
+      <article class="animal" data-wikipedia-title="Anteater">
+        <img src="images/anteater.jpg" alt="Anteater">
         <h2>Anteater</h2>
+        <p class="animal-summary">Loading information…</p>
+        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+          Read more on Wikipedia
+        </a>
       </article>
-  
-      <article class="animal">
-        <img src="images/texas-horned-lizard.jpg" alt="Texas horned lizard on the ground">
+    
+      <article class="animal" data-wikipedia-title="Texas horned lizard">
+        <img src="images/texas-horned-lizard.jpg" alt="Texas horned lizard">
         <h2>Texas horned lizard</h2>
+        <p class="animal-summary">Loading information…</p>
+        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+          Read more on Wikipedia
+        </a>
       </article>
     </section>
   </main>
+  
+  <script src="animals.js" defer></script>
+  
 </body>
 </html>

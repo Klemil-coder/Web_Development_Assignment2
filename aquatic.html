@@ -6,7 +6,7 @@
   <title>Aquatic Animals — Odd Habitats</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="aquatic">
   <header class="site-header">
     <a class="logo" href="index.html">Odd Habitats</a>
     <details class="menu">
@@ -24,23 +24,37 @@
   <main class="page">
     <a class="back-link" href="index.html">← All biomes</a>
     <h1>Aquatic</h1>
-
+  
     <section class="animal-grid" aria-label="Aquatic animals">
-      <article class="animal">
+      <article class="animal" data-wikipedia-title="Leafy seadragon">
         <img src="images/leafy-seadragon.jpg" alt="Leafy seadragon underwater">
         <h2>Leafy seadragon</h2>
+        <p class="animal-summary">Loading information…</p>
+        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+          Read more on Wikipedia
+        </a>
       </article>
-
-      <article class="animal">
-        <img src="images/blobfish.jpg" alt="Blobfish underwater">
+    
+      <article class="animal" data-wikipedia-title="Blobfish">
+        <img src="images/blobfish.jpg" alt="Blobfish">
         <h2>Blobfish</h2>
+        <p class="animal-summary">Loading information…</p>
+        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+          Read more on Wikipedia
+        </a>
       </article>
-
-      <article class="animal">
-        <img src="images/sea-slug.jpg" alt="Colorful sea slug underwater">
+    
+      <article class="animal" data-wikipedia-title="Sea slug">
+        <img src="images/sea-slug.jpg" alt="Sea slug">
         <h2>Sea slug</h2>
+        <p class="animal-summary">Loading information…</p>
+        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+          Read more on Wikipedia
+        </a>
       </article>
     </section>
   </main>
+  
+  <script src="animals.js" defer></script>
 </body>
 </html>
