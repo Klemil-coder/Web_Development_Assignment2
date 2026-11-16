@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aquatic Animals — Odd Habitats</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="reveal.js" defer></script>
 </head>
 <body class="aquatic">
   <header class="site-header">
@@ -20,37 +21,67 @@
       </nav>
     </details>
   </header>
-
+ 
   <main class="page">
     <a class="back-link" href="index.html">← All biomes</a>
     <h1>Aquatic</h1>
   
     <section class="animal-grid" aria-label="Aquatic animals">
       <article class="animal" data-wikipedia-title="Leafy seadragon">
-        <img src="images/leafy-seadragon.jpg" alt="Leafy seadragon underwater">
-        <h2>Leafy seadragon</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/leafy-seadragon.jpg" alt="Leafy seadragon underwater">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Leafy seadragon</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Leafy seadragon</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
-    
+ 
       <article class="animal" data-wikipedia-title="Blobfish">
-        <img src="images/blobfish.jpg" alt="Blobfish">
-        <h2>Blobfish</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/blobfish.jpg" alt="Blobfish">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Blobfish</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Blobfish</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
     
       <article class="animal" data-wikipedia-title="Sea slug">
-        <img src="images/sea-slug.jpg" alt="Sea slug">
-        <h2>Sea slug</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/sea-slug.jpg" alt="Sea slug">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Sea slug</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Sea slug</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
     </section>
   </main>
@@ -58,3 +89,4 @@
   <script src="animals.js" defer></script>
 </body>
 </html>
+ 

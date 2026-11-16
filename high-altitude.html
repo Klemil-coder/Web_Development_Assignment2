@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>High-Altitude Animals — Odd Habitats</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="reveal.js" defer></script>
 </head>
 <body class="high-altitude">
   <header class="site-header">
@@ -21,43 +22,69 @@
     </details>
   </header>
 
-  <main class="page">
+
+    <main class="page">
     <a class="back-link" href="index.html">← All biomes</a>
-    <h1>High altitude</h1>
-    
+    <h1>Aquatic</h1>
+  
     <section class="animal-grid" aria-label="High-altitude animals">
       <article class="animal" data-wikipedia-title="Euophrys omnisuperstes">
-        <img
-          src="images/Himalayan-jumping-spider.jpg"
-          alt="Himalayan jumping spider"
-        >
-        <h2>Himalayan jumping spider</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/Himalayan-jumping-spider.jpg" alt="Himalayan jumping spider">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Himalayan jumping spider</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Himalayan jumping spider</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
+      </article>
+ 
+      <article class="animal" data-wikipedia-title="Mountain goat">
+        <div class="animal-picture">
+          <img src="images/mountain-goat.jpg" alt="Mountain goat">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Mountain goat</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Mountain goat</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
     
-      <article class="animal" data-wikipedia-title="Mountain goat">
-        <img src="images/mountain-goat.jpg" alt="Mountain goat on a rocky slope">
-        <h2>Mountain goat</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
-      </article>
-
       <article class="animal" data-wikipedia-title="Wood Frog">
-        <img src="images/alaskan-wood-frog.jpg" alt="Mountain goat on a rocky slope">
-        <h2>Mountain goat</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/alaskan-wood-frog.jpg" alt="Wood Frog">
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Wood Frog</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Wood Frog</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
     </section>
   </main>
-  
   <script src="animals.js" defer></script>
   
 </body>

@@ -214,6 +214,187 @@ body.high-altitude .back-link {
   display: none;
 }
 
+.animal-picture {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: #111;
+  border-radius: 4px;
+}
+
+.animal-picture > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0;
+}
+
+/* The question-mark cover */
+.reveal-button {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  width: 100%;
+  border: 0;
+  color: white;
+  background: #111;
+  cursor: pointer;
+  font: inherit;
+  font-size: 3rem;
+}
+
+.reveal-button:focus-visible {
+  outline: 3px solid #f5c66b;
+  outline-offset: -5px;
+}
+
+.animal-info {
+  padding: 14px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.animal.is-revealed .animal-info {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Shared image reveal animation */
+.animal.is-revealed .animal-picture > img {
+  animation: animal-appear 500ms ease-out both;
+}
+
+/* Once revealed, remove the button from the way */
+.animal.is-revealed .reveal-button {
+  animation: cover-disappear 800ms ease forwards;
+  pointer-events: none;
+}
+
+/* AQUATIC: blue wave sweeps over the black cover */
+body.aquatic .reveal-button {
+  background: linear-gradient(#102b39, #07151d);
+}
+
+body.aquatic .reveal-button::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 0;
+  height: 45%;
+  background: #56a9bd;
+  border-radius: 0 0 50% 50%;
+  transform: translateY(-120%);
+}
+
+body.aquatic .animal.is-revealed .reveal-button::before {
+  animation: wave-wash 700ms ease-in forwards;
+}
+
+/* HIGH ALTITUDE: pale clouds drift across the cover */
+body.high-altitude .reveal-button {
+  background: #222a2a;
+}
+
+body.high-altitude .reveal-button::before,
+body.high-altitude .reveal-button::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: -70%;
+  width: 75%;
+  height: 55%;
+  border-radius: 50%;
+  background: #f4f5f1;
+  filter: blur(5px);
+}
+
+body.high-altitude .reveal-button::after {
+  top: 45%;
+  animation-delay: 100ms;
+}
+
+body.high-altitude .animal.is-revealed .reveal-button::before {
+  animation: cloud-pass 650ms ease-in forwards;
+}
+
+body.high-altitude .animal.is-revealed .reveal-button::after {
+  animation: cloud-pass 750ms ease-in forwards;
+}
+
+/* TERRESTRIAL: brown earth cover splits into four pieces */
+body.terrestrial .reveal-button {
+  background: #211810;
+}
+
+body.terrestrial .reveal-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(45deg, transparent 49%, #c19a62 50%, transparent 52%),
+    #76532f;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+body.terrestrial .animal.is-revealed .reveal-button::before {
+  animation: earth-crack 650ms ease-in forwards;
+}
+
+/* The question mark sits above the animated cover */
+.reveal-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes cover-disappear {
+  to { opacity: 0; }
+}
+
+@keyframes animal-appear {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes wave-wash {
+  from { transform: translateY(-120%); }
+  to { transform: translateY(240%); }
+}
+
+@keyframes cloud-pass {
+  from { transform: translateX(0); }
+  to { transform: translateX(260%); }
+}
+
+@keyframes earth-crack {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  100% { clip-path: polygon(0 0, 0 0, 0 0, 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @media (max-width: 700px) {
   .animal-grid {
     grid-template-columns: 1fr;

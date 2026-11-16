@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terrestrial Animals — Odd Habitats</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="reveal.js" defer></script>
 </head>
 <body class="terrestrial">
   <header class="site-header">
@@ -24,38 +25,67 @@
   <main class="page">
     <a class="back-link" href="index.html">← All biomes</a>
     <h1>Terrestrial</h1>
-    
+
     <section class="animal-grid" aria-label="Terrestrial animals">
-      <article class="animal" data-wikipedia-title="Aye-aye">
-        <img src="images/aye-aye.jpg" alt="Aye-aye in a tree">
-        <h2>Aye-aye</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+      <article class="animal" data-wikipedia-title="Aye-aye"></article>
+        <div class="animal-picture">
+          <img src="images/aye-aye.jpg" alt="Aye-aye">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Aye-aye</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Aye-aye</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
-    
+ 
       <article class="animal" data-wikipedia-title="Anteater">
-        <img src="images/anteater.jpg" alt="Anteater">
-        <h2>Anteater</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/Anteater.jpg" alt="Anteater">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Anteater</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Anteater</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
     
       <article class="animal" data-wikipedia-title="Texas horned lizard">
-        <img src="images/texas-horned-lizard.jpg" alt="Texas horned lizard">
-        <h2>Texas horned lizard</h2>
-        <p class="animal-summary">Loading information…</p>
-        <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
-          Read more on Wikipedia
-        </a>
+        <div class="animal-picture">
+          <img src="images/texas-horned-lizard.jpg" alt="Texas horned lizard">
+        
+          <button class="reveal-button" type="button" aria-expanded="false">
+            <span aria-hidden="true">?</span>
+            <span class="sr-only">Reveal Texas horned lizard</span>
+          </button>
+        </div>
+      
+        <div class="animal-info">
+          <h2>Texas horned lizard</h2>
+          <p class="animal-summary">Loading information…</p>
+          <a class="wikipedia-link" target="_blank" rel="noopener" hidden>
+            Read more on Wikipedia
+          </a>
+        </div>
       </article>
     </section>
   </main>
-  
   <script src="animals.js" defer></script>
-  
+
 </body>
 </html>
