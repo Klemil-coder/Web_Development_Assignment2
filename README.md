@@ -1,4 +1,4 @@
-# Odd Habitats
+# Odd Animals
 
 A small static field guide to unusual animals, grouped by biome. It was built for **Assignment 2** of Web Development 2026 (MDM, University of Coimbra).
 
@@ -42,9 +42,9 @@ Each biome has its own colour palette.
 └── images/         # animal photos
 ```
 
-## Running locally
+## Running
 
-Open `index.html` in a browser, or serve the folder with any static server, for example `python3 -m http.server`. An internet connection is needed for the Wikipedia summaries.
+Access the static website by visiting the following link: https://klemil-coder.github.io/Web_Development_Assignment2/
 
 ## Credits
 
