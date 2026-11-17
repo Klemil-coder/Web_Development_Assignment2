@@ -9,7 +9,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* Aquatic: deep water, blue-grey and charcoal */
+/* Biome colour themes */
 body.aquatic {
   --page: #dce7e9;
   --surface: #f4f7f6;
@@ -18,7 +18,6 @@ body.aquatic {
   --header: #9db8c0;
 }
 
-/* Terrestrial: soil, leaves and warm earth */
 body.terrestrial {
   --page: #eee5d5;
   --surface: #faf6ec;
@@ -27,7 +26,6 @@ body.terrestrial {
   --header: #c9a875;
 }
 
-/* High altitude: snow, dark stone and alpine green */
 body.high-altitude {
   --page: #e8e9e6;
   --surface: #f8f8f5;
@@ -36,7 +34,6 @@ body.high-altitude {
   --header: #c9ceca;
 }
 
-/* Apply each page's colors */
 body.aquatic,
 body.terrestrial,
 body.high-altitude {
@@ -69,6 +66,8 @@ body.high-altitude .back-link {
 }
 
 
+
+/* Layout: header, home and page structure */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -172,6 +171,9 @@ body.high-altitude .back-link {
   color: #315b43;
 }
 
+
+
+/* Animal cards and the "?" cover */
 .animal-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -230,7 +232,6 @@ body.high-altitude .back-link {
   opacity: 0;
 }
 
-/* The question-mark cover */
 .reveal-button {
   position: absolute;
   inset: 0;
@@ -262,12 +263,10 @@ body.high-altitude .back-link {
   opacity: 1;
 }
 
-/* Shared reveal: the cover plays its biome effect first, the image fades in underneath */
 .animal.is-revealed .animal-picture > img {
   animation: animal-appear 600ms ease-out 700ms both;
 }
 
-/* The cover's solid background is cleared halfway through its effect */
 .animal.is-revealed .reveal-button {
   animation: cover-clear 1400ms linear forwards;
   pointer-events: none;
@@ -283,7 +282,9 @@ body.high-altitude .back-link {
   opacity: 0;
 }
 
-/* AQUATIC: two waves wash up over the cover and drain away */
+
+
+/* Reveal animations for each biome */
 body.aquatic .reveal-button {
   --cover: #0b2230;
   background-color: var(--cover);
@@ -314,7 +315,6 @@ body.aquatic .animal.is-revealed .reveal-button::after {
   animation: wave-wash 1400ms ease-in-out forwards;
 }
 
-/* HIGH ALTITUDE: clouds drift across the cover */
 body.high-altitude .reveal-button {
   --cover: #222a2a;
   background-color: var(--cover);
@@ -347,7 +347,6 @@ body.high-altitude .animal.is-revealed .reveal-button::after {
   animation: cloud-pass 1400ms ease-in-out 150ms forwards;
 }
 
-/* TERRESTRIAL: the dry ground shakes, cracks and the two halves slide apart */
 body.terrestrial .reveal-button {
   --cover: #211810;
   background-color: var(--cover);
@@ -361,7 +360,6 @@ body.terrestrial .reveal-button::after {
   background: #8a6339;
 }
 
-/* Left half and right half share a jagged crack line */
 body.terrestrial .reveal-button::before {
   clip-path: polygon(0 0, 52% 0, 46% 20%, 54% 40%, 47% 60%, 53% 80%, 50% 100%, 0 100%);
 }
@@ -391,7 +389,9 @@ body.terrestrial .animal.is-revealed .reveal-button::after {
   border: 0;
 }
 
-/* Cover colour stays solid until the effect hides it, then clears to show the animal */
+
+
+/* Keyframes, reduced motion and responsive layout */
 @keyframes cover-clear {
   0%, 45% { background-color: var(--cover); }
   46%, 100% { background-color: transparent; }
@@ -402,7 +402,6 @@ body.terrestrial .animal.is-revealed .reveal-button::after {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* Rises over the cover, then drains away upwards */
 @keyframes wave-wash {
   0% { transform: translateY(105%); }
   45% { transform: translateY(0); }
@@ -431,7 +430,6 @@ body.terrestrial .animal.is-revealed .reveal-button::after {
   100% { transform: translateX(105%) rotate(8deg); }
 }
 
-/* Reduced motion: keep the reveal (it only plays after a click) but drop the shake and tilt */
 @media (prefers-reduced-motion: reduce) {
   @keyframes ground-split-left {
     from { transform: translateX(0); }
