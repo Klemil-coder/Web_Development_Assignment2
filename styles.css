@@ -262,92 +262,121 @@ body.high-altitude .back-link {
   opacity: 1;
 }
 
-/* Shared image reveal animation */
+/* Shared reveal: the cover plays its biome effect first, the image fades in underneath */
 .animal.is-revealed .animal-picture > img {
-  animation: animal-appear 500ms ease-out both;
+  animation: animal-appear 600ms ease-out 700ms both;
 }
 
-/* Once revealed, remove the button from the way */
+/* The cover's solid background is cleared halfway through its effect */
 .animal.is-revealed .reveal-button {
-  animation: cover-disappear 800ms ease forwards;
+  animation: cover-clear 1400ms linear forwards;
   pointer-events: none;
 }
 
-/* AQUATIC: blue wave sweeps over the black cover */
-body.aquatic .reveal-button {
-  background: linear-gradient(#102b39, #07151d);
+.reveal-button span[aria-hidden] {
+  position: relative;
+  z-index: 1;
+  transition: opacity 200ms;
 }
 
-body.aquatic .reveal-button::before {
+.animal.is-revealed .reveal-button span[aria-hidden] {
+  opacity: 0;
+}
+
+/* AQUATIC: two waves wash up over the cover and drain away */
+body.aquatic .reveal-button {
+  --cover: #0b2230;
+  background-color: var(--cover);
+}
+
+body.aquatic .reveal-button::before,
+body.aquatic .reveal-button::after {
   content: "";
   position: absolute;
-  left: -10%;
-  right: -10%;
+  left: -20%;
+  width: 140%;
+  height: 120%;
   top: 0;
-  height: 45%;
   background: #56a9bd;
-  border-radius: 0 0 50% 50%;
-  transform: translateY(-120%);
+  border-radius: 50% 50% 0 0 / 14% 14% 0 0;
+  transform: translateY(105%);
+}
+
+body.aquatic .reveal-button::after {
+  background: #a8dbe6;
 }
 
 body.aquatic .animal.is-revealed .reveal-button::before {
-  animation: wave-wash 700ms ease-in forwards;
+  animation: wave-wash 1400ms ease-in-out 120ms forwards;
 }
 
-/* HIGH ALTITUDE: pale clouds drift across the cover */
+body.aquatic .animal.is-revealed .reveal-button::after {
+  animation: wave-wash 1400ms ease-in-out forwards;
+}
+
+/* HIGH ALTITUDE: clouds drift across the cover */
 body.high-altitude .reveal-button {
-  background: #222a2a;
+  --cover: #222a2a;
+  background-color: var(--cover);
 }
 
 body.high-altitude .reveal-button::before,
 body.high-altitude .reveal-button::after {
   content: "";
   position: absolute;
-  top: 25%;
-  left: -70%;
-  width: 75%;
-  height: 55%;
+  top: -10%;
+  left: -140%;
+  width: 130%;
+  height: 65%;
   border-radius: 50%;
   background: #f4f5f1;
-  filter: blur(5px);
+  filter: blur(6px);
 }
 
 body.high-altitude .reveal-button::after {
-  top: 45%;
-  animation-delay: 100ms;
+  top: 40%;
+  height: 70%;
+  background: #dfe4e6;
 }
 
 body.high-altitude .animal.is-revealed .reveal-button::before {
-  animation: cloud-pass 650ms ease-in forwards;
+  animation: cloud-pass 1400ms ease-in-out forwards;
 }
 
 body.high-altitude .animal.is-revealed .reveal-button::after {
-  animation: cloud-pass 750ms ease-in forwards;
+  animation: cloud-pass 1400ms ease-in-out 150ms forwards;
 }
 
-/* TERRESTRIAL: brown earth cover splits into four pieces */
+/* TERRESTRIAL: the dry ground shakes, cracks and the two halves slide apart */
 body.terrestrial .reveal-button {
-  background: #211810;
+  --cover: #211810;
+  background-color: var(--cover);
 }
 
-body.terrestrial .reveal-button::before {
+body.terrestrial .reveal-button::before,
+body.terrestrial .reveal-button::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(45deg, transparent 49%, #c19a62 50%, transparent 52%),
-    #76532f;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  background: #8a6339;
+}
+
+/* Left half and right half share a jagged crack line */
+body.terrestrial .reveal-button::before {
+  clip-path: polygon(0 0, 52% 0, 46% 20%, 54% 40%, 47% 60%, 53% 80%, 50% 100%, 0 100%);
+}
+
+body.terrestrial .reveal-button::after {
+  clip-path: polygon(52% 0, 100% 0, 100% 100%, 50% 100%, 53% 80%, 47% 60%, 54% 40%, 46% 20%);
+  background: #7a5430;
 }
 
 body.terrestrial .animal.is-revealed .reveal-button::before {
-  animation: earth-crack 650ms ease-in forwards;
+  animation: ground-split-left 1100ms ease-in forwards;
 }
 
-/* The question mark sits above the animated cover */
-.reveal-button span {
-  position: relative;
-  z-index: 1;
+body.terrestrial .animal.is-revealed .reveal-button::after {
+  animation: ground-split-right 1100ms ease-in forwards;
 }
 
 .sr-only {
@@ -362,8 +391,10 @@ body.terrestrial .animal.is-revealed .reveal-button::before {
   border: 0;
 }
 
-@keyframes cover-disappear {
-  to { opacity: 0; }
+/* Cover colour stays solid until the effect hides it, then clears to show the animal */
+@keyframes cover-clear {
+  0%, 45% { background-color: var(--cover); }
+  46%, 100% { background-color: transparent; }
 }
 
 @keyframes animal-appear {
@@ -371,27 +402,45 @@ body.terrestrial .animal.is-revealed .reveal-button::before {
   to { opacity: 1; transform: scale(1); }
 }
 
+/* Rises over the cover, then drains away upwards */
 @keyframes wave-wash {
-  from { transform: translateY(-120%); }
-  to { transform: translateY(240%); }
+  0% { transform: translateY(105%); }
+  45% { transform: translateY(0); }
+  55% { transform: translateY(0); }
+  100% { transform: translateY(-110%); }
 }
 
 @keyframes cloud-pass {
   from { transform: translateX(0); }
-  to { transform: translateX(260%); }
+  to { transform: translateX(200%); }
 }
 
-@keyframes earth-crack {
-  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-  100% { clip-path: polygon(0 0, 0 0, 0 0, 0 0); }
+@keyframes ground-split-left {
+  0%, 20% { transform: translateX(0); }
+  5% { transform: translateX(-3px); }
+  10% { transform: translateX(3px); }
+  15% { transform: translateX(-3px); }
+  100% { transform: translateX(-105%) rotate(-8deg); }
 }
 
+@keyframes ground-split-right {
+  0%, 20% { transform: translateX(0); }
+  5% { transform: translateX(3px); }
+  10% { transform: translateX(-3px); }
+  15% { transform: translateX(3px); }
+  100% { transform: translateX(105%) rotate(8deg); }
+}
+
+/* Reduced motion: keep the reveal (it only plays after a click) but drop the shake and tilt */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+  @keyframes ground-split-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-105%); }
+  }
+
+  @keyframes ground-split-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(105%); }
   }
 }
 
